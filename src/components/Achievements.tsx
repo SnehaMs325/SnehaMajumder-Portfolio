@@ -1,0 +1,145 @@
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+import { Trophy, Users, Code, Star } from 'lucide-react';
+
+const achievements = [
+  { label: 'Hackathons', value: 15, icon: Code, suffix: '+' },
+  { label: 'Projects', value: 20, icon: Trophy, suffix: '+' },
+  { label: 'Collaborations', value: 50, icon: Users, suffix: '+' },
+  { label: 'Certifications', value: 2, icon: Star, suffix: '' },
+];
+
+export const Achievements = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
+
+  return (
+    <section id="achievements" className="py-20 relative overflow-hidden">
+      <div className="container mx-auto px-4">
+        {/* Shooting stars animation */}
+        {isInView && (
+          <>
+            <motion.div
+              className="absolute top-20 left-10 w-1 h-1 bg-primary rounded-full"
+              initial={{ x: -100, y: -100, opacity: 1 }}
+              animate={{ x: 300, y: 300, opacity: 0 }}
+              transition={{ duration: 1.5, delay: 0.5 }}
+            />
+            <motion.div
+              className="absolute top-40 right-20 w-1 h-1 bg-primary rounded-full"
+              initial={{ x: 100, y: -100, opacity: 1 }}
+              animate={{ x: -300, y: 300, opacity: 0 }}
+              transition={{ duration: 1.5, delay: 0.8 }}
+            />
+          </>
+        )}
+
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-4 text-center font-space"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            Achievements & <span className="text-gradient">Impact</span>
+          </motion.h2>
+
+          <motion.p
+            className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Building connections as much as building projects
+          </motion.p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {achievements.map((achievement, index) => (
+              <motion.div
+                key={achievement.label}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.4 + index * 0.1,
+                  type: 'spring',
+                }}
+                className="text-center"
+              >
+                <div className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                  <motion.div
+                    className="mb-4 flex justify-center"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <achievement.icon className="w-8 h-8 text-primary" />
+                    </div>
+                  </motion.div>
+                  
+                  <motion.div
+                    className="text-4xl font-bold text-primary mb-2"
+                    initial={{ opacity: 0 }}
+                    animate={hasAnimated ? { opacity: 1 } : {}}
+                  >
+                    <Counter
+                      from={0}
+                      to={achievement.value}
+                      duration={2}
+                      delay={0.5 + index * 0.1}
+                      isInView={hasAnimated}
+                    />
+                    {achievement.suffix}
+                  </motion.div>
+                  
+                  <div className="text-sm text-muted-foreground">{achievement.label}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const Counter = ({ from, to, duration, delay, isInView }: { from: number; to: number; duration: number; delay: number; isInView: boolean }) => {
+  const [count, setCount] = useState(from);
+
+  useEffect(() => {
+    if (!isInView) return;
+    
+    const timeout = setTimeout(() => {
+      let startTime: number;
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
+        
+        setCount(Math.floor(progress * (to - from) + from));
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      
+      requestAnimationFrame(animate);
+    }, delay * 1000);
+
+    return () => clearTimeout(timeout);
+  }, [from, to, duration, delay, isInView]);
+
+  return <>{count}</>;
+};
