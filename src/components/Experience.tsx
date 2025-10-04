@@ -74,14 +74,14 @@ export const Experience = () => {
                     transition={{ duration: 0.6 }}
                     style={{ transformStyle: 'preserve-3d' }}
                   >
-                    <div className="bg-card border border-border rounded-xl p-6 h-full flex flex-col">
+                    <div className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 h-full flex flex-col shadow-lg">
                       <div className="mb-4 p-3 bg-primary/10 rounded-lg w-fit">
                         <exp.icon className="w-6 h-6 text-primary" />
                       </div>
                       <h3 className="text-xl font-bold mb-2 font-space">{exp.title}</h3>
                       <p className="text-primary text-sm mb-2">{exp.organization}</p>
                       <p className="text-muted-foreground text-sm mb-4">{exp.period}</p>
-                      <p className="text-foreground/80 flex-1">{exp.description}</p>
+                      <p className="text-foreground flex-1 leading-relaxed">{exp.description}</p>
                     </div>
                   </motion.div>
 
@@ -91,8 +91,8 @@ export const Experience = () => {
                     transition={{ duration: 0.6 }}
                     style={{ transformStyle: 'preserve-3d', rotateY: 180 }}
                   >
-                    <div className="bg-primary/10 border border-primary/30 rounded-xl p-6 h-full flex items-center justify-center">
-                      <p className="text-foreground leading-relaxed">{exp.details}</p>
+                    <div className="bg-card border border-primary/50 rounded-xl p-6 h-full flex items-center justify-center shadow-lg">
+                      <p className="text-foreground text-base leading-relaxed">{exp.details}</p>
                     </div>
                   </motion.div>
                 </motion.div>
