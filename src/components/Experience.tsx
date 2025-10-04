@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Briefcase, Users, Award } from 'lucide-react';
+import { Briefcase, Users, Award, MapPin } from 'lucide-react';
 
 const experiences = [
   {
     title: 'Bit 2 Byte Club Member',
     organization: 'College Tech Club',
+    location: 'College Campus',
     period: '2023 - Present',
     description: 'Active member contributing to technical events and workshops.',
     details: 'Organized coding workshops, mentored juniors, and led team projects focused on web development and AI.',
@@ -15,6 +16,7 @@ const experiences = [
   {
     title: 'Internshala Student Partner',
     organization: 'Internshala',
+    location: 'Pan India - Remote',
     period: '2024',
     description: 'Campus ambassador promoting internships and learning opportunities.',
     details: 'Connected students with opportunities, organized webinars, and achieved top performer status in outreach activities.',
@@ -23,6 +25,7 @@ const experiences = [
   {
     title: 'Hackathon Enthusiast',
     organization: 'Multiple Platforms',
+    location: 'Online & Offline',
     period: '2023 - Present',
     description: 'Regular participant in national and online hackathons.',
     details: 'Hackathons are my playground — long nights, too much coffee, and unexpected breakthroughs.',
@@ -79,7 +82,11 @@ export const Experience = () => {
                         <exp.icon className="w-6 h-6 text-primary" />
                       </div>
                       <h3 className="text-xl font-bold mb-2 font-space">{exp.title}</h3>
-                      <p className="text-primary text-sm mb-2">{exp.organization}</p>
+                      <p className="text-primary text-sm mb-1">{exp.organization}</p>
+                      <div className="flex items-center gap-1 mb-3">
+                        <MapPin className="w-3.5 h-3.5 text-muted-foreground" />
+                        <p className="text-muted-foreground text-xs">{exp.location}</p>
+                      </div>
                       <p className="text-muted-foreground text-sm mb-4">{exp.period}</p>
                       <p className="text-foreground flex-1 leading-relaxed">{exp.description}</p>
                     </div>
