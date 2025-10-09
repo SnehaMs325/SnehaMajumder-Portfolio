@@ -1,73 +1,87 @@
-# Welcome to your Lovable project
+🌌 Personal Portfolio – Sneha Majumder
 
-## Project info
+A cosmic-themed personal portfolio built using HTML, CSS, JavaScript, and React.
+This project is part of my learning journey, where I explore frontend development through vibe coding, iteration, and design experimentation.
 
-**URL**: https://lovable.dev/projects/e3ede4fd-b209-45d4-ab01-6d405a41a1c0
+🚀 About the Project
 
-## How can I edit this code?
+This portfolio represents:
 
-There are several ways of editing your application.
+My current skill set and areas I’m exploring.
 
-**Use Lovable**
+A space where I experiment with UI/UX concepts, animations, and component structures.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e3ede4fd-b209-45d4-ab01-6d405a41a1c0) and start prompting.
+A live learning project, updated as I grow my technical abilities.
 
-Changes made via Lovable will be committed automatically to this repo.
+I built this project by combining self-learning, prompt-driven development, and hands-on coding — refining it step by step.
 
-**Use your preferred IDE**
+🛠️ Tech Stack
+Technology	Purpose
+React	Component-based UI
+HTML5	Structural layout
+CSS3 / Tailwind (if used)	Styling & responsiveness
+JavaScript (ES6+)	Interactivity & animations
+Framer Motion (if used)	Smooth animated transitions
+🎨 Features & Vibes
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Cosmic gradient theme with star accents ✨
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Smooth scroll & fade/slide transitions
 
-Follow these steps:
+Animated constellation-style skill reveal
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Experience cards with improved readability (no text overflow)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Honest “Learning Phase” Projects section (Vibe Coding Sessions)
 
-# Step 3: Install the necessary dependencies.
-npm i
+Hackathon participation highlight (including ISRO Hackathon)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Responsive and mobile-friendly layout
 
-**Edit a file directly in GitHub**
+📌 Sections Included
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Hero – Playful introduction with social links
 
-**Use GitHub Codespaces**
+About Me – Short cosmic bio
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+My Superpowers (Skills) – Honest overview of current skills
 
-## What technologies are used for this project?
+Experience & Journey – Hackathons & roles like ISP, Bit 2 Byte
 
-This project is built with:
+Vibe Coding Projects Learning Log – Instead of fake projects
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Certifications – Tata GenAI & Deloitte Cyber
 
-## How can I deploy this project?
+Achievements & Community – Hackathon participation
 
-Simply open [Lovable](https://lovable.dev/projects/e3ede4fd-b209-45d4-ab01-6d405a41a1c0) and click on Share -> Publish.
+Contact Me – Email & LinkedIn (no Twitter)
 
-## Can I connect a custom domain to my Lovable project?
+🌟 Live Demo (If Hosted)
 
-Yes, you can!
+Add link here once deployed on Vercel / Netlify / GitHub Pages
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+🎯 Goal with This Project
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This portfolio is not just a showcase but a living document of my journey as a developer in progress. I plan to update it as I learn React, build real projects, improve UI/UX, and document my coding experiments.
+
+“Not perfect, but in orbit — improving with every iteration.” 🚀
+
+📬 Connect With Me
+
+LinkedIn: www.linkedin.com/in/sneha-majumder-tech001
+
+Email: snehamsofficial@gmail.com
+
+💡 Future Improvements
+
+Add blogs / learning logs
+
+Showcase real mini-projects as they get built
+
+Improve accessibility & dark mode polish
+
+Add reusable component library
+
+If you like the theme or vibe of this portfolio, feel free to ⭐ the repo or drop a message.
+
+Always happy to connect, collaborate, or talk space & ideas 🌠
