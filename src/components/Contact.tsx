@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, Linkedin, Github, Twitter } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 
 const socials = [
-  { name: 'Email', icon: Mail, href: 'mailto:sneha@example.com', color: 'hsl(270, 70%, 65%)' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/in/snehamajumder', color: 'hsl(280, 75%, 60%)' },
-  { name: 'GitHub', icon: Github, href: 'https://github.com/snehamajumder', color: 'hsl(260, 70%, 65%)' },
-  { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/snehamajumder', color: 'hsl(290, 70%, 65%)' },
+  { name: 'Email', icon: Mail, href: 'mailto:snehamsofficial@gmail.com', color: 'hsl(270, 70%, 65%)' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/sneha-majumder-tech001', color: 'hsl(280, 75%, 60%)' },
 ];
 
 export const Contact = () => {
@@ -42,7 +40,7 @@ export const Contact = () => {
             Drop me a message — let's code, collaborate, or just talk space & ideas 🌠
           </motion.p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-2 gap-6 mb-12 max-w-md mx-auto">
             {socials.map((social, index) => (
               <motion.a
                 key={social.name}
@@ -60,7 +58,7 @@ export const Contact = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group"
               >
-                <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 hover:border-primary/50 transition-all relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+                <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 hover:border-primary/50 transition-all relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)] break-words">
                   <motion.div
                     className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity"
                     style={{ backgroundColor: social.color }}

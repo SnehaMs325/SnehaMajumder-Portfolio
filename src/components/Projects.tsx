@@ -1,30 +1,26 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Sparkles } from 'lucide-react';
 
-const projects = [
+const learningJourney = [
   {
-    title: 'AI-Powered Study Assistant',
-    description: 'An intelligent web application that helps students organize study materials and get personalized learning recommendations.',
-    tags: ['React', 'Python', 'TensorFlow', 'Firebase'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+    title: 'Exploring React Components',
+    description: 'Building small experimental components to understand props, state, and hooks through hands-on practice.',
+    tags: ['React', 'JavaScript', 'CSS'],
+    focus: 'Component Logic',
   },
   {
-    title: 'Campus Event Manager',
-    description: 'A comprehensive platform for managing college events, registrations, and attendee engagement with real-time updates.',
-    tags: ['Next.js', 'Node.js', 'MongoDB', 'Socket.io'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+    title: 'Web Development Practice',
+    description: 'Creating responsive layouts and interactive UIs using HTML, CSS, and vanilla JavaScript to strengthen fundamentals.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    focus: 'Frontend Basics',
   },
   {
-    title: 'Eco-Tracker App',
-    description: 'Mobile-first web app for tracking carbon footprint and suggesting eco-friendly alternatives for daily activities.',
-    tags: ['React Native', 'Express', 'PostgreSQL'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+    title: 'Design & Prototyping',
+    description: 'Learning UI/UX principles through Figma and Canva, translating design concepts into code implementations.',
+    tags: ['Figma', 'Canva', 'UI/UX'],
+    focus: 'Design Skills',
   },
 ];
 
@@ -47,7 +43,7 @@ export const Projects = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            Featured <span className="text-gradient">Projects</span>
+            Learning <span className="text-gradient">Journey</span>
           </motion.h2>
           
           <motion.p
@@ -56,29 +52,35 @@ export const Projects = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Building connections as much as building projects.
+            Currently exploring through consistent vibe coding sessions — small experimental builds to understand concepts and improve hands-on logic.
           </motion.p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
+            {learningJourney.map((item, index) => (
               <motion.div
-                key={project.title}
+                key={item.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
               >
                 <motion.div
-                  className="relative bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 h-full flex flex-col group hover:border-primary/50 transition-colors shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                  className="relative bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 h-full flex flex-col group hover:border-primary/50 transition-colors shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden"
                   whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
                   
-                  <h3 className="text-xl font-bold mb-3 font-space relative z-10">{project.title}</h3>
-                  <p className="text-foreground/80 mb-4 flex-1 relative z-10">{project.description}</p>
+                  <div className="mb-2 relative z-10">
+                    <span className="text-xs px-3 py-1 bg-primary/20 text-primary rounded-full font-medium">
+                      {item.focus}
+                    </span>
+                  </div>
                   
-                  <div className="flex flex-wrap gap-2 mb-4 relative z-10">
-                    {project.tags.map(tag => (
+                  <h3 className="text-xl font-bold mb-3 font-space relative z-10 break-words">{item.title}</h3>
+                  <p className="text-foreground/80 mb-4 flex-1 relative z-10 break-words">{item.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 relative z-10">
+                    {item.tags.map(tag => (
                       <span
                         key={tag}
                         className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full"
@@ -86,30 +88,6 @@ export const Projects = () => {
                         {tag}
                       </span>
                     ))}
-                  </div>
-
-                  <div className="flex gap-3 relative z-10">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-primary/50 hover:bg-primary/10"
-                      asChild
-                    >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </a>
-                    </Button>
-                    <Button
-                      size="sm"
-                      className="flex-1 bg-primary hover:bg-primary/90"
-                      asChild
-                    >
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </a>
-                    </Button>
                   </div>
                 </motion.div>
               </motion.div>

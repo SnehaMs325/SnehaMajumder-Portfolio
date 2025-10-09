@@ -86,7 +86,7 @@ export const Experience = () => {
                     transition={{ duration: 0.6 }}
                     style={{ transformStyle: 'preserve-3d' }}
                   >
-                    <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 h-full flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+                    <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 h-full flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.4)] overflow-hidden break-words">
                       <div className="mb-4 p-3 bg-primary/10 rounded-lg w-fit">
                         <exp.icon className="w-6 h-6 text-primary" />
                       </div>
@@ -111,7 +111,7 @@ export const Experience = () => {
                       backfaceVisibility: 'hidden'
                     }}
                   >
-                    <div className="bg-gradient-to-br from-card/95 to-primary/10 backdrop-blur-md border-2 border-primary/50 rounded-xl p-6 h-full flex items-center justify-center shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+                    <div className="bg-gradient-to-br from-card/95 to-primary/10 backdrop-blur-md border-2 border-primary/50 rounded-xl p-6 h-full flex items-center justify-center shadow-[0_8px_32px_rgba(0,0,0,0.4)] overflow-hidden break-words">
                       <p className="text-foreground text-base leading-relaxed text-center">{exp.details}</p>
                     </div>
                   </motion.div>

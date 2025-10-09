@@ -81,7 +81,7 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              Currently in orbit around projects, internships, and hackathons 🚀
+              Currently in orbit around learning, code sprints, and hackathons 🚀
             </motion.p>
 
             <motion.div
@@ -93,47 +93,25 @@ export const Hero = () => {
               <Button 
                 size="lg" 
                 className="group bg-primary hover:bg-primary/90 text-primary-foreground"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                asChild
               >
-                Get In Touch
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <a href="https://www.linkedin.com/in/sneha-majumder-tech001" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="mr-2 w-5 h-5" />
+                  LinkedIn
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
                 className="border-primary/50 text-foreground hover:bg-primary/10"
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                asChild
               >
-                View My Work
+                <a href="mailto:snehamsofficial@gmail.com">
+                  <Mail className="mr-2 w-5 h-5" />
+                  Contact
+                </a>
               </Button>
-            </motion.div>
-
-            <motion.div
-              className="flex gap-6 justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-            >
-              {[
-                { Icon: Github, href: 'https://github.com/snehamajumder' },
-                { Icon: Linkedin, href: 'https://linkedin.com/in/snehamajumder' },
-                { Icon: Mail, href: 'mailto:sneha@example.com' },
-              ].map(({ Icon, href }, index) => (
-                <motion.a
-                  key={href}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full border border-primary/30 hover:border-primary hover:bg-primary/10 transition-colors"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 + index * 0.1 }}
-                >
-                  <Icon className="w-5 h-5" />
-                </motion.a>
-              ))}
             </motion.div>
           </motion.div>
         </div>

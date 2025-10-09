@@ -4,10 +4,10 @@ import { useRef, useEffect, useState } from 'react';
 import { Trophy, Users, Code, Star } from 'lucide-react';
 
 const achievements = [
-  { label: 'Hackathons', value: 15, icon: Code, suffix: '+' },
-  { label: 'Projects', value: 20, icon: Trophy, suffix: '+' },
-  { label: 'Collaborations', value: 50, icon: Users, suffix: '+' },
+  { label: 'ISRO Hackathon', value: 1, icon: Trophy, suffix: '' },
+  { label: 'Bit 2 Byte', value: 1, icon: Code, suffix: '' },
   { label: 'Certifications', value: 2, icon: Star, suffix: '' },
+  { label: 'Active Learning', value: 1, icon: Users, suffix: '' },
 ];
 
 export const Achievements = () => {
@@ -54,7 +54,7 @@ export const Achievements = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            Achievements & <span className="text-gradient">Impact</span>
+            Achievements & <span className="text-gradient">Community</span>
           </motion.h2>
 
           <motion.p
@@ -63,7 +63,7 @@ export const Achievements = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Building connections as much as building projects
+            Building connections as much as building skill — participated in multiple hackathons including the ISRO Hackathon experience.
           </motion.p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
@@ -79,7 +79,7 @@ export const Achievements = () => {
                 }}
                 className="text-center"
               >
-                <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 hover:border-primary/50 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group">
+                <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 hover:border-primary/50 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group break-words">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                   
                   <motion.div
