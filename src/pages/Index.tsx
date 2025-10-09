@@ -1,4 +1,5 @@
 import { CustomCursor } from '@/components/CustomCursor';
+import { CosmicBackground } from '@/components/CosmicBackground';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { Skills } from '@/components/Skills';
@@ -12,17 +13,20 @@ import { Contact } from '@/components/Contact';
 const Index = () => {
   return (
     <div className="min-h-screen relative">
+      <CosmicBackground />
       <CustomCursor />
       
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Certifications />
-      <Education />
-      <Achievements />
-      <Contact />
+      <div className="relative z-10">
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Certifications />
+        <Education />
+        <Achievements />
+        <Contact />
+      </div>
     </div>
   );
 };

@@ -79,9 +79,11 @@ export const Achievements = () => {
                 }}
                 className="text-center"
               >
-                <div className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 hover:border-primary/50 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  
                   <motion.div
-                    className="mb-4 flex justify-center"
+                    className="mb-4 flex justify-center relative z-10"
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
@@ -91,7 +93,7 @@ export const Achievements = () => {
                   </motion.div>
                   
                   <motion.div
-                    className="text-4xl font-bold text-primary mb-2"
+                    className="text-4xl font-bold text-primary mb-2 relative z-10"
                     initial={{ opacity: 0 }}
                     animate={hasAnimated ? { opacity: 1 } : {}}
                   >
@@ -105,7 +107,7 @@ export const Achievements = () => {
                     {achievement.suffix}
                   </motion.div>
                   
-                  <div className="text-sm text-muted-foreground">{achievement.label}</div>
+                  <div className="text-sm text-muted-foreground relative z-10">{achievement.label}</div>
                 </div>
               </motion.div>
             ))}

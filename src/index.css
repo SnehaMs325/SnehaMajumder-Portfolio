@@ -79,6 +79,7 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     cursor: none;
+    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -118,4 +119,19 @@ All colors MUST be HSL.
   position: fixed;
   pointer-events: none;
   z-index: 9999;
+}
+
+/* Perspective for 3D flip cards */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }

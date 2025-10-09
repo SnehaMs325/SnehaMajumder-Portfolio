@@ -58,8 +58,8 @@ export const Skills = () => {
                 whileHover={{ scale: 1.05, rotate: 3 }}
                 className="group"
               >
-                <div className="bg-card border border-border rounded-xl p-6 text-center h-full flex flex-col items-center justify-center relative overflow-hidden transition-all hover:border-primary/50">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 text-center h-full flex flex-col items-center justify-center relative overflow-hidden transition-all hover:border-primary/50 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                   
                   <motion.div
                     className="mb-4 relative"

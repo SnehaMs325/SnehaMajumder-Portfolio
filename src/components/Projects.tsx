@@ -42,13 +42,22 @@ export const Projects = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-16 text-center font-space"
+            className="text-4xl md:text-5xl font-bold mb-4 text-center font-space"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
             Featured <span className="text-gradient">Projects</span>
           </motion.h2>
+          
+          <motion.p
+            className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Building connections as much as building projects.
+          </motion.p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
@@ -59,11 +68,11 @@ export const Projects = () => {
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
               >
                 <motion.div
-                  className="bg-card border border-border rounded-xl p-6 h-full flex flex-col group hover:border-primary/50 transition-colors"
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3 }}
+                  className="relative bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 h-full flex flex-col group hover:border-primary/50 transition-colors shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
                   
                   <h3 className="text-xl font-bold mb-3 font-space relative z-10">{project.title}</h3>
                   <p className="text-foreground/80 mb-4 flex-1 relative z-10">{project.description}</p>

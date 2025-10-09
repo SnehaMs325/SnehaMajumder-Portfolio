@@ -58,7 +58,7 @@ export const Certifications = () => {
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               >
                 <motion.div
-                  className="bg-card border border-border rounded-xl p-6 relative overflow-hidden group"
+                  className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 relative overflow-hidden group shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >

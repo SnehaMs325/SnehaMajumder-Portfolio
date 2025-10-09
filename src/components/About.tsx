@@ -54,7 +54,7 @@ export const About = () => {
           </motion.h2>
 
           <motion.div
-            className="bg-card border border-border rounded-2xl p-8 md:p-12 relative overflow-hidden"
+            className="bg-card/95 backdrop-blur-md border border-border rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}

@@ -48,13 +48,22 @@ export const Experience = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-16 text-center font-space"
+            className="text-4xl md:text-5xl font-bold mb-4 text-center font-space"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
             Experience & <span className="text-gradient">Journey</span>
           </motion.h2>
+          
+          <motion.p
+            className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Hackathons are my playground — long nights, too much coffee, and unexpected breakthroughs.
+          </motion.p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {experiences.map((exp, index) => (
@@ -77,7 +86,7 @@ export const Experience = () => {
                     transition={{ duration: 0.6 }}
                     style={{ transformStyle: 'preserve-3d' }}
                   >
-                    <div className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 h-full flex flex-col shadow-lg">
+                    <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 h-full flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
                       <div className="mb-4 p-3 bg-primary/10 rounded-lg w-fit">
                         <exp.icon className="w-6 h-6 text-primary" />
                       </div>
@@ -96,10 +105,14 @@ export const Experience = () => {
                     className="absolute inset-0 backface-hidden"
                     animate={{ rotateY: flipped === index ? 0 : -180 }}
                     transition={{ duration: 0.6 }}
-                    style={{ transformStyle: 'preserve-3d', rotateY: 180 }}
+                    style={{ 
+                      transformStyle: 'preserve-3d', 
+                      transform: 'rotateY(180deg)',
+                      backfaceVisibility: 'hidden'
+                    }}
                   >
-                    <div className="bg-card border border-primary/50 rounded-xl p-6 h-full flex items-center justify-center shadow-lg">
-                      <p className="text-foreground text-base leading-relaxed">{exp.details}</p>
+                    <div className="bg-gradient-to-br from-card/95 to-primary/10 backdrop-blur-md border-2 border-primary/50 rounded-xl p-6 h-full flex items-center justify-center shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+                      <p className="text-foreground text-base leading-relaxed text-center">{exp.details}</p>
                     </div>
                   </motion.div>
                 </motion.div>

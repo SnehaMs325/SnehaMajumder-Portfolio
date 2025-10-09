@@ -60,7 +60,7 @@ export const Contact = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group"
               >
-                <div className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors relative overflow-hidden">
+                <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 hover:border-primary/50 transition-all relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
                   <motion.div
                     className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity"
                     style={{ backgroundColor: social.color }}

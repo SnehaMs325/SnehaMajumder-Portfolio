@@ -32,13 +32,22 @@ export const Education = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-16 text-center font-space"
+            className="text-4xl md:text-5xl font-bold mb-4 text-center font-space"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-gradient">Education</span>
+            Education <span className="text-gradient">Timeline</span>
           </motion.h2>
+
+          <motion.p
+            className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            The journey of learning and growth
+          </motion.p>
 
           <div className="max-w-3xl mx-auto relative">
             {/* Timeline line */}
@@ -61,8 +70,9 @@ export const Education = () => {
                     transition={{ duration: 0.4, delay: 0.3 + index * 0.2 }}
                   />
 
-                  <div className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
-                    <div className="flex items-start gap-4">
+                  <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 hover:border-primary/50 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                    <div className="flex items-start gap-4 relative z-10">
                       <div className="p-3 bg-primary/10 rounded-lg">
                         <GraduationCap className="w-6 h-6 text-primary" />
                       </div>
