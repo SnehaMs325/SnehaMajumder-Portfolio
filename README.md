@@ -80,6 +80,9 @@ Showcase real mini-projects as they get built
 
 Improve accessibility & dark mode polish
 
+
+Here is the link :  snehamajumder-portfolio.netlify.app
+
 Add reusable component library
 
 If you like the theme or vibe of this portfolio, feel free to ⭐ the repo or drop a message.
