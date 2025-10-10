@@ -1,5 +1,5 @@
 🌌 Personal Portfolio – Sneha Majumder
-snehamajumder-portfolio.netlify.app 
+ 
 
 A cosmic-themed personal portfolio built using HTML, CSS, JavaScript, and React.
 This project is part of my learning journey, where I explore frontend development through vibe coding, iteration, and design experimentation.
