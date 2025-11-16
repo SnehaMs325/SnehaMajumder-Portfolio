@@ -55,11 +55,8 @@ Certifications – Tata GenAI & Deloitte Cyber
 
 Achievements & Community – Hackathon participation
 
-Contact Me – Email & LinkedIn (no Twitter)
 
-🌟 Live Demo (If Hosted)
 
-Add link here once deployed on Vercel / Netlify / GitHub Pages
 
 🎯 Goal with This Project
 
