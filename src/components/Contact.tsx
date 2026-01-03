@@ -96,7 +96,8 @@ export const Contact = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-muted-foreground text-sm"
           >
-            <p>© 2024 Sneha Majumder. Crafted with 💜 and cosmic vibes.</p>
+            <p>© 2024 Sneha Majumder. Built with passion, code, and a sprinkle of stardust ✨</p>
+
           </motion.div>
         </motion.div>
       </div>

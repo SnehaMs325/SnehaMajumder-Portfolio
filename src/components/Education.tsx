@@ -6,14 +6,20 @@ import { GraduationCap } from 'lucide-react';
 const education = [
   {
     degree: 'B.Tech in Computer Science & Engineering',
-    institution: 'Your University',
-    period: '2023 - 2027',
-    description: 'Currently in 2nd year, focusing on Data Structures, Algorithms, Web Development, and AI/ML.',
+    institution: 'Gurunanak Institute of Technology',
+    period: '2024 - 2028',
+    description: 'Currently in 2nd year, focusing on Data Structures and Algorithms, Web Development, and AI.',
   },
   {
-    degree: 'Higher Secondary Education',
-    institution: 'Your School',
-    period: '2021 - 2023',
+    degree: 'Higher Secondary Education (Class XII)',
+    institution: 'Vision International School (ISC Board)',
+    period: '2022 - 2024',
+    description: 'Science stream with focus on Mathematics and Computer Science.',
+  },
+  {
+    degree: ' Secondary Education (Class X)',
+    institution: 'Vision International School (ICSE Board)',
+    period: '2020 - 2022',
     description: 'Science stream with focus on Mathematics and Computer Science.',
   },
 ];

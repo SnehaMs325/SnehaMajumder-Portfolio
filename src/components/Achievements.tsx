@@ -1,13 +1,20 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import { Trophy, Users, Code, Star } from 'lucide-react';
+import { Trophy, Code, Star } from 'lucide-react';
 
-const achievements = [
-  { label: 'ISRO Hackathon', value: 1, icon: Trophy, suffix: '' },
-  { label: 'Bit 2 Byte', value: 1, icon: Code, suffix: '' },
-  { label: 'Certifications', value: 2, icon: Star, suffix: '' },
-  { label: 'Active Learning', value: 1, icon: Users, suffix: '' },
+// TypeScript interface for achievements
+interface Achievement {
+  label: string;
+  icon: React.ElementType;
+  value?: number;      // optional numeric achievements
+  subtitle?: string;   // optional text achievements
+}
+
+// Achievements array
+const achievements: Achievement[] = [
+  { label: 'Hackathons', value: 4, icon: Trophy },
+  { label: 'Bit 2 Byte', subtitle: 'Community Member', icon: Code },
+  { label: 'Certifications', subtitle: 'Completed virtual internships on Forage & AICTE approved', icon: Star },
 ];
 
 export const Achievements = () => {
@@ -16,9 +23,7 @@ export const Achievements = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true);
-    }
+    if (isInView && !hasAnimated) setHasAnimated(true);
   }, [isInView, hasAnimated]);
 
   return (
@@ -66,7 +71,7 @@ export const Achievements = () => {
             Building connections as much as building skill — participated in multiple hackathons including the ISRO Hackathon experience.
           </motion.p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement.label}
@@ -79,9 +84,13 @@ export const Achievements = () => {
                 }}
                 className="text-center"
               >
-                <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 hover:border-primary/50 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group break-words">
+                {/* Card Container */}
+                <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 hover:border-primary/50 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.3)]
+                                relative overflow-hidden group break-words flex flex-col h-full">
+                  {/* Hover Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                  
+
+                  {/* Icon */}
                   <motion.div
                     className="mb-4 flex justify-center relative z-10"
                     whileHover={{ rotate: 360, scale: 1.1 }}
@@ -91,23 +100,33 @@ export const Achievements = () => {
                       <achievement.icon className="w-8 h-8 text-primary" />
                     </div>
                   </motion.div>
-                  
-                  <motion.div
-                    className="text-4xl font-bold text-primary mb-2 relative z-10"
-                    initial={{ opacity: 0 }}
-                    animate={hasAnimated ? { opacity: 1 } : {}}
-                  >
-                    <Counter
-                      from={0}
-                      to={achievement.value}
-                      duration={2}
-                      delay={0.5 + index * 0.1}
-                      isInView={hasAnimated}
-                    />
-                    {achievement.suffix}
-                  </motion.div>
-                  
-                  <div className="text-sm text-muted-foreground relative z-10">{achievement.label}</div>
+
+                  {/* Content */}
+                  <div className="flex-1 flex flex-col justify-center">
+                    {typeof achievement.value === 'number' ? (
+                      <motion.div
+                        className="text-4xl font-bold text-primary mb-2 relative z-10"
+                        initial={{ opacity: 0 }}
+                        animate={hasAnimated ? { opacity: 1 } : {}}
+                      >
+                        <Counter
+                          from={0}
+                          to={achievement.value}
+                          duration={2}
+                          delay={0.5 + index * 0.1}
+                          isInView={hasAnimated}
+                        />
+                      </motion.div>
+                    ) : (
+                      <div className="text-sm md:text-base font-semibold text-primary mb-2 relative z-10 text-center">
+                        {achievement.subtitle}
+                      </div>
+                    )}
+
+                    <div className="text-sm text-muted-foreground relative z-10 text-center">
+                      {achievement.label}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -118,25 +137,36 @@ export const Achievements = () => {
   );
 };
 
-const Counter = ({ from, to, duration, delay, isInView }: { from: number; to: number; duration: number; delay: number; isInView: boolean }) => {
+// Counter Component
+const Counter = ({
+  from,
+  to,
+  duration,
+  delay,
+  isInView,
+}: {
+  from: number;
+  to: number;
+  duration: number;
+  delay: number;
+  isInView: boolean;
+}) => {
   const [count, setCount] = useState(from);
 
   useEffect(() => {
     if (!isInView) return;
-    
+
     const timeout = setTimeout(() => {
       let startTime: number;
       const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime;
         const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-        
+
         setCount(Math.floor(progress * (to - from) + from));
-        
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
+
+        if (progress < 1) requestAnimationFrame(animate);
       };
-      
+
       requestAnimationFrame(animate);
     }, delay * 1000);
 
