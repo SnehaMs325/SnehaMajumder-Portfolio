@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code2, Database, Palette, Zap, Brain, Globe } from 'lucide-react';
+import { Code2, Database, Palette, Zap, Brain, Globe, GitBranch, GitBranchIcon } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 const skills = [
   { name: 'HTML & CSS', Icon: Code2, color: 'hsl(270, 70%, 65%)' },
-  { name: 'JavaScript Basics', Icon: Code2, color: 'hsl(280, 75%, 60%)' },
+  { name: 'JavaScript', Icon: Code2, color: 'hsl(280, 75%, 60%)' },
   { name: 'React (Learning)', Icon: Globe, color: 'hsl(260, 70%, 65%)' },
-  { name: 'Figma & Canva', Icon: Palette, color: 'hsl(290, 70%, 65%)' },
+  { name: 'Git & GitHub', Icon:FaGithub, color: 'hsl(290, 70%, 65%)' },
   { name: 'DSA in Java', Icon: Brain, color: 'hsl(250, 70%, 65%)' },
   { name: 'Problem Solving', Icon: Zap, color: 'hsl(275, 75%, 65%)' },
 ];

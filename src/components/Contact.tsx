@@ -6,6 +6,7 @@ import { Mail, Linkedin } from 'lucide-react';
 const socials = [
   { name: 'Email', icon: Mail, href: 'mailto:snehamsofficial@gmail.com', color: 'hsl(270, 70%, 65%)' },
   { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/sneha-majumder-tech001', color: 'hsl(280, 75%, 60%)' },
+  { name: 'GitHub', icon: Mail, href: 'https://github.com/SnehaMs325', color: 'hsl(270, 70%, 65%)' },
 ];
 
 export const Contact = () => {
@@ -40,7 +41,8 @@ export const Contact = () => {
             Drop me a message — let's code, collaborate, or just talk space & ideas 🌠
           </motion.p>
 
-          <div className="grid grid-cols-2 gap-6 mb-12 max-w-md mx-auto">
+          {/* Updated Flex Layout */}
+          <div className="flex justify-center gap-6 mb-12 flex-wrap">
             {socials.map((social, index) => (
               <motion.a
                 key={social.name}

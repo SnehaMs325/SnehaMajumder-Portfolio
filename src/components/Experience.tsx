@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Briefcase, Users, Award, MapPin } from 'lucide-react';
 
@@ -55,7 +54,7 @@ export const Experience = () => {
           >
             Experience & <span className="text-gradient">Journey</span>
           </motion.h2>
-          
+
           <motion.p
             className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -72,48 +71,42 @@ export const Experience = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                className="perspective-1000"
+                className="w-full"
               >
                 <motion.div
-                  className="relative h-64 cursor-pointer"
+                  className="relative h-80 w-full cursor-pointer"
                   onHoverStart={() => setFlipped(index)}
                   onHoverEnd={() => setFlipped(null)}
-                  whileHover={{ scale: 1.02 }}
+                  style={{ perspective: 1000 }}
                 >
+                  {/* Front Side */}
                   <motion.div
-                    className="absolute inset-0 backface-hidden"
+                    className="absolute inset-0 rounded-xl shadow-lg bg-card/95 p-6 flex flex-col justify-between"
                     animate={{ rotateY: flipped === index ? 180 : 0 }}
                     transition={{ duration: 0.6 }}
-                    style={{ transformStyle: 'preserve-3d' }}
+                    style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}
                   >
-                    <div className="bg-card/95 backdrop-blur-md border border-border rounded-xl p-6 h-full flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.4)] overflow-hidden break-words">
-                      <div className="mb-4 p-3 bg-primary/10 rounded-lg w-fit">
-                        <exp.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-xl font-bold mb-2 font-space">{exp.title}</h3>
-                      <p className="text-primary text-sm mb-1">{exp.organization}</p>
-                      <div className="flex items-center gap-1 mb-3">
-                        <MapPin className="w-3.5 h-3.5 text-muted-foreground" />
-                        <p className="text-muted-foreground text-xs">{exp.location}</p>
-                      </div>
-                      <p className="text-muted-foreground text-sm mb-4">{exp.period}</p>
-                      <p className="text-foreground flex-1 leading-relaxed">{exp.description}</p>
+                    <div className="mb-4 p-3 bg-primary/10 rounded-lg w-fit">
+                      <exp.icon className="w-6 h-6 text-primary" />
                     </div>
+                    <h3 className="text-xl font-bold mb-2 font-space">{exp.title}</h3>
+                    <p className="text-primary text-sm mb-1">{exp.organization}</p>
+                    <div className="flex items-center gap-1 mb-3">
+                      <MapPin className="w-3.5 h-3.5 text-muted-foreground" />
+                      <p className="text-muted-foreground text-xs">{exp.location}</p>
+                    </div>
+                    <p className="text-muted-foreground text-sm mb-4">{exp.period}</p>
+                    <p className="text-foreground flex-1 leading-relaxed">{exp.description}</p>
                   </motion.div>
 
+                  {/* Back Side */}
                   <motion.div
-                    className="absolute inset-0 backface-hidden"
+                    className="absolute inset-0 rounded-xl shadow-lg p-6 flex items-center justify-center bg-gradient-to-br from-card/95 to-primary/10"
                     animate={{ rotateY: flipped === index ? 0 : -180 }}
                     transition={{ duration: 0.6 }}
-                    style={{ 
-                      transformStyle: 'preserve-3d', 
-                      transform: 'rotateY(180deg)',
-                      backfaceVisibility: 'hidden'
-                    }}
+                    style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden', rotateY: '180deg' }}
                   >
-                    <div className="bg-gradient-to-br from-card/95 to-primary/10 backdrop-blur-md border-2 border-primary/50 rounded-xl p-6 h-full flex items-center justify-center shadow-[0_8px_32px_rgba(0,0,0,0.4)] overflow-hidden break-words">
-                      <p className="text-foreground text-base leading-relaxed text-center">{exp.details}</p>
-                    </div>
+                    <p className="text-foreground text-base leading-relaxed text-center">{exp.details}</p>
                   </motion.div>
                 </motion.div>
               </motion.div>
