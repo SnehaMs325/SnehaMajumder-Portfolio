@@ -1,88 +1,48 @@
-🌌 Personal Portfolio – Sneha Majumder
- 
+# 🌌 Cosmic Portfolio | Sneha Majumder
 
-A cosmic-themed personal portfolio built using HTML, CSS, JavaScript, and React.
-This project is part of my learning journey, where I explore frontend development through vibe coding, iteration, and design experimentation.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-snehamajumder--portfolio.netlify.app-purple?style=for-the-badge&logo=netlify)](https://snehamajumder-portfolio.netlify.app)
+[![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20TypeScript%20%7C%20Tailwind%20%7C%20Python-blue?style=for-the-badge)](#-tech-stack)
 
-🚀 About the Project
+A high-performance, cosmic-themed personal portfolio showcasing my evolution from **Front-End Development** toward **Data Science, Machine Learning, and Analytics**. Built with modern React architecture, interactive 3D interactions, and modular data management.
 
-This portfolio represents:
+---
 
-My current skill set and areas I’m exploring.
+## 📌 Overview
 
-A space where I experiment with UI/UX concepts, animations, and component structures.
+This portfolio serves as an interactive hub highlighting my dual core focus:
+1. **Data Science & ML:** Exploratory Data Analysis (EDA), data visualization, statistical modeling (Python, Pandas, NumPy), and machine learning applications.
+2. **Front-End Engineering:** Crafting responsive, accessible UI/UX, interactive data dashboards, and performant web applications (React, TypeScript, Tailwind CSS, Framer Motion).
 
-A live learning project, updated as I grow my technical abilities.
+---
 
-I built this project by combining self-learning, prompt-driven development, and hands-on coding — refining it step by step.
+## 🛠️ Tech Stack & Tools
 
-🛠️ Tech Stack
-Technology	Purpose
-React	Component-based UI
-HTML5	Structural layout
-CSS3 / Tailwind (if used)	Styling & responsiveness
-JavaScript (ES6+)	Interactivity & animations
-Framer Motion (if used)	Smooth animated transitions
-🎨 Features & Vibes
+| Area | Technologies & Libraries |
+| :--- | :--- |
+| **Data & ML** | Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, Data Structures & Algorithms (Java) |
+| **Front-End** | React.js, TypeScript, Tailwind CSS, Shadcn UI |
+| **Animation & Graphics** | Framer Motion, Lucide React Icons |
+| **Deployment & Hosting** | Netlify, Git, GitHub |
 
-Cosmic gradient theme with star accents ✨
+---
 
-Smooth scroll & fade/slide transitions
+## ✨ Key Features & Architecture
 
-Animated constellation-style skill reveal
+- **Centralized Data Layer:** Configured via a central `portfolioData.ts` file to keep site content decoupled from component rendering.
+- **Interactive Experience Cards:** 3D flip-card interactions using Framer Motion to showcase roles, hackathons, and achievements without clutter.
+- **Data-Driven & ML Project Highlights:** Feature flags and "In Development" badges highlighting upcoming EDA and predictive modeling builds.
+- **Cosmic UI Design:** Custom dark space-theme palette with ambient glow effects, crisp typography, and fluid responsive layouts.
 
-Experience cards with improved readability (no text overflow)
+---
 
-Honest “Learning Phase” Projects section (Vibe Coding Sessions)
+## 📁 Repository Structure
 
-Hackathon participation highlight (including ISRO Hackathon)
-
-Responsive and mobile-friendly layout
-
-📌 Sections Included
-
-Hero – Playful introduction with social links
-
-About Me – Short cosmic bio
-
-My Superpowers (Skills) – Honest overview of current skills
-
-Experience & Journey – Hackathons & roles like ISP, Bit 2 Byte
-
-Vibe Coding Projects Learning Log – Instead of fake projects
-
-Certifications – Tata GenAI & Deloitte Cyber
-
-Achievements & Community – Hackathon participation
-
-
-
-
-🎯 Goal with This Project
-
-This portfolio is not just a showcase but a living document of my journey as a developer in progress. I plan to update it as I learn React, build real projects, improve UI/UX, and document my coding experiments.
-
-“Not perfect, but in orbit — improving with every iteration.” 🚀
-
-📬 Connect With Me
-
-LinkedIn: www.linkedin.com/in/sneha-majumder-tech001
-
-Email: snehamsofficial@gmail.com
-
-💡 Future Improvements
-
-Add blogs / learning logs
-
-Showcase real mini-projects as they get built
-
-Improve accessibility & dark mode polish
-
-
-Here is the link :  snehamajumder-portfolio.netlify.app
-
-Add reusable component library
-
-If you like the theme or vibe of this portfolio, feel free to ⭐ the repo or drop a message.
-
-Always happy to connect, collaborate, or talk space & ideas 🌠
+```text
+├── src/
+│   ├── components/       # Reusable UI components (Hero, About, Experience, Projects)
+│   ├── data/
+│   │   └── portfolioData.ts  # Centralized content schema
+│   ├── styles/           # Tailwind and global CSS configurations
+│   └── App.tsx           # Core page assembly
+├── public/               # Static assets & graphics
+└── README.md
