@@ -22,7 +22,7 @@ export const About: React.FC = () => {
   }, [isInView, about.bio]);
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
+    <section id="about" className="section-padding relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           ref={ref}
@@ -33,7 +33,7 @@ export const About: React.FC = () => {
         >
           {/* Constellation SVG decoration */}
           <div className="absolute -top-10 -left-6 w-32 h-32 opacity-30 pointer-events-none">
-            <svg viewBox="0 0 100 100" className="text-purple-400">
+            <svg viewBox="0 0 100 100" className="text-primary">
               <circle cx="10" cy="10" r="2" fill="currentColor" />
               <circle cx="40" cy="30" r="2" fill="currentColor" />
               <circle cx="70" cy="20" r="2" fill="currentColor" />
@@ -46,40 +46,40 @@ export const About: React.FC = () => {
 
           {/* Section Heading */}
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-8 text-center tracking-tight text-white"
+            className="section-heading text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
             {about.title}{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+            <span className="text-gradient">
               {about.titleHighlight}
             </span>
           </motion.h2>
 
           {/* About Card with Glassmorphism */}
           <motion.div
-            className="bg-slate-900/60 backdrop-blur-md border border-purple-500/20 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+            className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Ambient Background Glow Inside Card */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
             
             {/* Typewriter Text Box */}
-            <p className="text-lg md:text-xl leading-relaxed text-slate-200 min-h-[160px] md:min-h-[120px]">
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/90 min-h-[160px] md:min-h-[120px]">
               {displayText}
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.5, repeat: Infinity }}
-                className="inline-block w-0.5 h-6 bg-purple-400 ml-1 align-middle"
+                className="inline-block w-0.5 h-6 bg-primary ml-1 align-middle"
               />
             </p>
 
             {/* Key Stats Section */}
             <motion.div
-              className="mt-8 pt-8 border-t border-slate-800 flex flex-wrap gap-8 md:gap-12 justify-center"
+              className="mt-8 pt-8 border-t border-border/50 flex flex-wrap gap-8 md:gap-12 justify-center"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -92,10 +92,10 @@ export const About: React.FC = () => {
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.9 + index * 0.1 }}
                 >
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent mb-1">
+                  <div className="text-3xl font-bold text-gradient mb-1">
                     {item.value}
                   </div>
-                  <div className="text-sm font-medium text-slate-400">{item.label}</div>
+                  <div className="text-sm font-medium text-muted-foreground">{item.label}</div>
                 </motion.div>
               ))}
             </motion.div>

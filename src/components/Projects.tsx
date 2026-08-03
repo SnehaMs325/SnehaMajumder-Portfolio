@@ -1,146 +1,110 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
-
-interface ProjectItem {
-  title: string;
-  description: string;
-  tags: string[];
-  focus: string;
-  link?: string;
-}
-
-const projectsData: ProjectItem[] = [
-  {
-    title: 'Exploring React Components',
-    description: 'Built small experimental components to understand props, state, and hooks through hands-on practice.',
-    tags: ['React', 'JavaScript', 'CSS'],
-    focus: 'Component Logic',
-  },
-  {
-    title: 'Web Development Practice',
-    description: 'Created responsive layouts and interactive UIs using HTML, CSS, and JavaScript to strengthen fundamentals.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    focus: 'Frontend Basics',
-  },
-  {
-    title: 'Design & Prototyping',
-    description: 'Learned UI/UX principles through Figma and Canva, translating design concepts into code implementations.',
-    tags: ['Figma', 'Canva', 'UI/UX'],
-    focus: 'Design Skills',
-  },
-  {
-    title: 'Promodoro-Buddy',
-    description: 'A simple web project for practicing React and Git. Helps users manage work sessions using the Pomodoro technique.',
-    link: 'https://github.com/SnehaMs325/cozy-promodoro-buddy',
-    tags: ['React', 'JavaScript', 'Git', 'GitHub'],
-    focus: 'React & Git',
-  },
-  {
-    title: 'Your Notes Noted',
-    description: 'A simple web project for practicing React and Git. Helps users manage their notes cleanly.',
-    link: 'https://yournotesnoted.netlify.app/',
-    tags: ['React', 'JavaScript', 'Git', 'GitHub'],
-    focus: 'React & Git',
-  },
-  {
-    title: 'Fate Switch',
-    description: 'A story-based interactive web game designed to test branching state management.',
-    link: 'https://fateswitch.netlify.app/',
-    tags: ['React', 'JavaScript', 'Git', 'GitHub'],
-    focus: 'Advanced React',
-  },
-];
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ExternalLink, Github, Clock } from 'lucide-react';
+import { portfolioData } from '../data/portfolioData';
 
 export const Projects: React.FC = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const { projects } = portfolioData;
 
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          {/* Section Header */}
-          <motion.h2
-            className="text-3xl md:text-5xl font-bold mb-4 text-center font-space"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-          >
-            Learning <span className="text-gradient">Journey</span>
-          </motion.h2>
+    <section id="projects" className="section-padding relative z-10">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Section Heading */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Featured <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Projects</span>
+          </h2>
+          <p className="text-gray-400 max-w-xl mx-auto text-sm md:text-base">
+            A blend of data analytics, exploratory data analysis, and frontend interactive platforms.
+          </p>
+        </div>
 
-          <motion.p
-            className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-sm md:text-base"
-            initial={{ opacity: 0, y: 15 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Currently exploring through consistent vibe coding sessions — small experimental builds to understand concepts and improve hands-on logic.
-          </motion.p>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project, index) => {
+            const isComingSoon = project.isComingSoon;
 
-          {/* Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {projectsData.map((item, index) => (
+            return (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 25 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
-                whileHover={{ y: -4 }}
-                className="relative bg-card/90 backdrop-blur-sm border border-border rounded-xl p-6 flex flex-col group hover:border-primary/50 transition-colors shadow-lg"
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="relative flex flex-col justify-between rounded-xl bg-slate-900/60 border border-slate-800 p-6 hover:border-purple-500/50 transition-colors duration-300"
               >
-                {/* Focus Badge */}
-                <div className="mb-3">
-                  <span className="text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-md font-medium border border-primary/20">
-                    {item.focus}
-                  </span>
+                <div>
+                  {/* Top Header: Title & Badges */}
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <h3 className="text-xl font-semibold text-white">
+                      {project.title}
+                    </h3>
+
+                    {/* Coming Soon Badge */}
+                    {isComingSoon && (
+                      <span className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30 shrink-0">
+                        <Clock className="w-3 h-3" />
+                        In Development
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Project Description */}
+                  <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold mb-2 font-space break-words text-card-foreground">
-                  {item.title}
-                </h3>
+                <div>
+                  {/* Tech Stack Chips */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-purple-300 border border-slate-700/60 font-mono"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
-                {/* Description */}
-                <p className="text-muted-foreground text-sm mb-6 flex-1 break-words leading-relaxed">
-                  {item.description}
-                </p>
-
-                {/* Tech Stack Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {item.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[11px] px-2 py-0.5 bg-secondary text-secondary-foreground rounded-md font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* External Link */}
-                {item.link && (
-                  <div className="pt-2 border-t border-border/50">
+                  {/* Links */}
+                  <div className="flex items-center gap-4 pt-4 border-t border-slate-800/80">
                     <a
-                      href={item.link}
+                      href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold hover:underline"
+                      className="inline-flex items-center gap-1.5 text-sm text-slate-300 hover:text-white transition-colors"
                     >
-                      View App <ExternalLink size={14} />
+                      <Github className="w-4 h-4" />
+                      GitHub
                     </a>
+
+                    {/* Conditional Live Demo Button */}
+                    {isComingSoon ? (
+                      <span className="inline-flex items-center gap-1.5 text-sm text-slate-500 cursor-not-allowed">
+                        <ExternalLink className="w-4 h-4 opacity-50" />
+                        Coming Soon
+                      </span>
+                    ) : (
+                      project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Live Demo
+                        </a>
+                      )
+                    )}
                   </div>
-                )}
+                </div>
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

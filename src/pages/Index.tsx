@@ -24,8 +24,8 @@ const Index = () => {
       <CosmicBackground />
       <CustomCursor />
 
-      {/* Main Page Structure with Consistent Section Spacing */}
-      <main className="relative z-10 flex flex-col gap-16 md:gap-28 lg:gap-36 pb-20">
+      {/* Main Page Structure with Clean Flow */}
+      <main className="relative z-10">
         <Hero data={portfolioData.hero} />
         <About data={portfolioData.about} />
         <Skills skills={portfolioData.skills} />

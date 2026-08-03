@@ -1,128 +1,133 @@
-import React, { useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Briefcase, Users, Award, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Users, Briefcase, Award, RotateCw, Calendar, MapPin } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-// Map string keys to actual React icon components
+// Map icon strings from data to Lucide components
 const iconMap: Record<string, React.ElementType> = {
-  Briefcase,
   Users,
+  Briefcase,
   Award,
 };
 
 export const Experience: React.FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const [flipped, setFlipped] = useState<number | null>(null);
-
   const { experience } = portfolioData;
+  const [flippedCards, setFlippedCards] = useState<Record<string, boolean>>({});
+
+  const handleCardClick = (id: string) => {
+    setFlippedCards((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   return (
-    <section id="experience" className="py-20 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          {/* Section Heading */}
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 text-center tracking-tight text-white"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
+    <section id="experience" className="section-padding relative z-10">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Section Heading */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
             {experience.title}{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
               {experience.titleHighlight}
             </span>
-          </motion.h2>
-
-          {/* Subtitle */}
-          <motion.p
-            className="text-center text-slate-400 mb-16 max-w-2xl mx-auto text-base md:text-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          </h2>
+          <p className="text-slate-400 max-w-xl mx-auto text-sm md:text-base mb-4">
             {experience.subtitle}
-          </motion.p>
+          </p>
 
-          {/* Flip Card Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {experience.items.map((exp, index) => {
-              const IconComponent = iconMap[exp.icon] || Briefcase;
+          {/* Flip Card Interaction Hint */}
+          <span className="inline-flex items-center gap-1.5 text-xs text-purple-300 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 font-medium">
+            <RotateCw className="w-3.5 h-3.5" />
+            Tap or hover on a card to flip and view details
+          </span>
+        </div>
 
-              return (
-                <motion.div
-                  key={exp.id}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                  className="w-full"
+        {/* Experience Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {experience.items.map((item, index) => {
+            const IconComponent = iconMap[item.icon] || Briefcase;
+            const isFlipped = !!flippedCards[item.id];
+
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="h-[280px] w-full [perspective:1000px] cursor-pointer"
+                onClick={() => handleCardClick(item.id)}
+                onMouseEnter={() =>
+                  setFlippedCards((prev) => ({ ...prev, [item.id]: true }))
+                }
+                onMouseLeave={() =>
+                  setFlippedCards((prev) => ({ ...prev, [item.id]: false }))
+                }
+              >
+                {/* 3D Inner Wrapper */}
+                <div
+                  className={`relative w-full h-full duration-500 [transform-style:preserve-3d] transition-transform ${
+                    isFlipped ? '[transform:rotateY(180deg)]' : ''
+                  }`}
                 >
-                  <motion.div
-                    className="relative h-80 w-full cursor-pointer"
-                    onHoverStart={() => setFlipped(index)}
-                    onHoverEnd={() => setFlipped(null)}
-                    style={{ perspective: 1000 }}
-                  >
-                    {/* Front Side */}
-                    <motion.div
-                      className="absolute inset-0 rounded-xl bg-slate-900/60 backdrop-blur-md border border-purple-500/20 p-6 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
-                      animate={{ rotateY: flipped === index ? 180 : 0 }}
-                      transition={{ duration: 0.6 }}
-                      style={{
-                        transformStyle: 'preserve-3d',
-                        backfaceVisibility: 'hidden',
-                      }}
-                    >
-                      <div>
-                        <div className="mb-4 p-3 bg-purple-500/10 border border-purple-500/20 rounded-lg w-fit">
-                          <IconComponent className="w-6 h-6 text-purple-400" />
+                  {/* FRONT SIDE */}
+                  <div className="absolute inset-0 w-full h-full rounded-xl bg-slate-900/60 border border-slate-800 p-6 flex flex-col justify-between [backface-visibility:hidden]">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="p-2.5 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                          <IconComponent className="w-5 h-5" />
                         </div>
-                        <h3 className="text-xl font-bold mb-1 text-white tracking-tight">
-                          {exp.title}
-                        </h3>
-                        <p className="text-purple-400 text-sm font-medium mb-2">
-                          {exp.organization}
-                        </p>
-                        <div className="flex items-center gap-1.5 mb-2">
-                          <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                          <p className="text-slate-400 text-xs">{exp.location}</p>
-                        </div>
-                        <p className="text-slate-500 text-xs font-mono">{exp.period}</p>
+                        <span className="flex items-center gap-1 text-xs text-slate-400 font-mono">
+                          <Calendar className="w-3 h-3" />
+                          {item.period}
+                        </span>
                       </div>
 
-                      <p className="text-slate-300 text-sm leading-relaxed border-t border-slate-800/80 pt-4 mt-auto">
-                        {exp.description}
+                      <h3 className="text-lg font-semibold text-white mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-purple-300 font-medium mb-3">
+                        {item.organization}
                       </p>
-                    </motion.div>
+                      <p className="text-xs text-slate-300 line-clamp-3 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
 
-                    {/* Back Side */}
-                    <motion.div
-                      className="absolute inset-0 rounded-xl bg-gradient-to-br from-slate-900/90 to-purple-950/80 backdrop-blur-md border border-purple-500/40 p-6 flex flex-col items-center justify-center text-center shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
-                      animate={{ rotateY: flipped === index ? 0 : -180 }}
-                      transition={{ duration: 0.6 }}
-                      style={{
-                        transformStyle: 'preserve-3d',
-                        backfaceVisibility: 'hidden',
-                      }}
-                    >
-                      <h4 className="text-purple-300 text-sm font-semibold mb-2 uppercase tracking-wider">
-                        Key Details & Impact
+                    <div className="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs text-slate-400">
+                      <span className="flex items-center gap-1">
+                        <MapPin className="w-3 h-3" />
+                        {item.location}
+                      </span>
+                      <span className="text-purple-400 font-medium text-[11px]">
+                        Hover / Tap for details →
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* BACK SIDE */}
+                  <div className="absolute inset-0 w-full h-full rounded-xl bg-slate-800/90 border border-purple-500/40 p-6 flex flex-col justify-between [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <div>
+                      <h4 className="text-sm font-semibold text-purple-300 mb-2 border-b border-purple-500/20 pb-1">
+                        Key Responsibilities & Impact
                       </h4>
-                      <p className="text-slate-200 text-sm md:text-base leading-relaxed">
-                        {exp.details}
+                      <p className="text-xs text-slate-200 leading-relaxed">
+                        {item.details}
                       </p>
-                    </motion.div>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
+                    </div>
+
+                    <div className="pt-2 text-right">
+                      <span className="text-[11px] text-purple-300/80 italic">
+                        Click to flip back
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

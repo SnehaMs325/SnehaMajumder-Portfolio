@@ -137,3 +137,23 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+
+@layer components {
+  /* Tightened global section padding */
+  .section-padding {
+    @apply py-8 md:py-12 lg:py-14;
+  }
+
+  /* Utility for sections needing closer spacing (e.g., Contact) */
+  .section-padding-tight {
+    @apply pt-4 pb-12 md:pt-6 md:pb-16 lg:pt-8 lg:pb-16;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-3 md:mb-4 tracking-tight;
+  }
+
+  .section-subheading {
+    @apply text-muted-foreground text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto;
+  }
+}

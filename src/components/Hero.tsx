@@ -49,16 +49,15 @@ export const Hero: React.FC = () => {
             />
           </motion.div>
 
-          {/* Intro Text */}
+         {/* Intro Text */}
           <div className="text-left">
             <p className="text-sm md:text-base text-gray-400">Hello, I’m</p>
-            <h2 className="text-2xl md:text-3xl font-bold leading-tight">
-              <span className="bg-gradient-to-r from-white via-purple-300 to-purple-500 bg-clip-text text-transparent">
-                Sneha Majumder
-              </span>
+            <h2 className="text-2xl md:text-3xl font-bold leading-tight text-white">
+              Sneha Majumder
             </h2>
           </div>
         </motion.div>
+        
 
         {/* Tagline */}
         <p className="text-base md:text-lg mb-8 text-gray-300 max-w-lg mx-auto">

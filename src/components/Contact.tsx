@@ -17,7 +17,7 @@ export const Contact: React.FC = () => {
   const { contact, personalInfo } = portfolioData;
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+    <section id="contact" className="section-padding-tight relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           ref={ref}
@@ -28,20 +28,20 @@ export const Contact: React.FC = () => {
         >
           {/* Heading */}
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white font-space"
+            className="section-heading text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
             {contact.title}{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+            <span className="text-gradient">
               {contact.titleHighlight}
             </span>
           </motion.h2>
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -71,7 +71,7 @@ export const Contact: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className="group"
                 >
-                  <div className="bg-slate-900/60 backdrop-blur-md border border-purple-500/20 rounded-xl p-6 min-w-[140px] hover:border-purple-500/50 transition-all duration-300 relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+                  <div className="bg-card/60 backdrop-blur-md border border-border/50 rounded-xl p-6 min-w-[140px] hover:border-primary/50 transition-all duration-300 relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
                     {/* Hover Glow Effect */}
                     <div
                       className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-300 pointer-events-none"
@@ -97,7 +97,7 @@ export const Contact: React.FC = () => {
                       />
                     </motion.div>
 
-                    <div className="text-sm font-semibold text-slate-200">
+                    <div className="text-sm font-semibold text-foreground">
                       {social.name}
                     </div>
                   </div>
@@ -111,7 +111,7 @@ export const Contact: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-slate-400 text-sm border-t border-slate-800/80 pt-8"
+            className="text-muted-foreground text-sm border-t border-border/50 pt-8"
           >
             <p>
               © {new Date().getFullYear()} {personalInfo.name}. Built with passion, code, and a sprinkle of stardust ✨
