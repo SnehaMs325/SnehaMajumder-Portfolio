@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Definition of the design system. All colors MUST be HSL. */
 
 @layer base {
   :root {
@@ -64,7 +62,6 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Same as light for cosmic theme */
     --background: 240 50% 8%;
     --foreground: 240 10% 98%;
   }
@@ -75,11 +72,21 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
-    cursor: none;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  /* Only hide native cursor on desktop/hover devices */
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      cursor: none;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -129,9 +136,4 @@ All colors MUST be HSL.
 .backface-hidden {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
 }

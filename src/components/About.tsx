@@ -1,39 +1,39 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { portfolioData } from '../data/portfolioData';
 
-export const About = () => {
-  const ref = useRef(null);
+export const About: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const [displayText, setDisplayText] = useState('');
   
-  const fullText = "I'm a second-year B.Tech Computer Science student with a passion for building meaningful technology. From hackathons to internships, I thrive on challenges that push me to grow. I believe in learning by doing, collaborating with others, and turning ideas into reality — one line of code at a time.";
+  const { about } = portfolioData;
 
   useEffect(() => {
     if (isInView) {
       let index = 0;
       const interval = setInterval(() => {
-        setDisplayText(fullText.slice(0, index));
+        setDisplayText(about.bio.slice(0, index));
         index++;
-        if (index > fullText.length) clearInterval(interval);
+        if (index > about.bio.length) clearInterval(interval);
       }, 20);
       return () => clearInterval(interval);
     }
-  }, [isInView]);
+  }, [isInView, about.bio]);
 
   return (
-    <section id="about" className="py-20 relative">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-20 relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto relative"
         >
-          {/* Constellation decoration */}
-          <div className="absolute top-20 left-10 w-32 h-32 opacity-20">
-            <svg viewBox="0 0 100 100" className="text-primary">
+          {/* Constellation SVG decoration */}
+          <div className="absolute -top-10 -left-6 w-32 h-32 opacity-30 pointer-events-none">
+            <svg viewBox="0 0 100 100" className="text-purple-400">
               <circle cx="10" cy="10" r="2" fill="currentColor" />
               <circle cx="40" cy="30" r="2" fill="currentColor" />
               <circle cx="70" cy="20" r="2" fill="currentColor" />
@@ -44,43 +44,47 @@ export const About = () => {
             </svg>
           </div>
 
+          {/* Section Heading */}
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-8 text-center font-space"
+            className="text-4xl md:text-5xl font-bold mb-8 text-center tracking-tight text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            About <span className="text-gradient">Me</span>
+            {about.title}{' '}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+              {about.titleHighlight}
+            </span>
           </motion.h2>
 
+          {/* About Card with Glassmorphism */}
           <motion.div
-            className="bg-card/95 backdrop-blur-md border border-border rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+            className="bg-slate-900/60 backdrop-blur-md border border-purple-500/20 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
+            {/* Ambient Background Glow Inside Card */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl -z-10 pointer-events-none" />
             
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/90 font-inter min-h-[200px]">
+            {/* Typewriter Text Box */}
+            <p className="text-lg md:text-xl leading-relaxed text-slate-200 min-h-[160px] md:min-h-[120px]">
               {displayText}
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.5, repeat: Infinity }}
-                className="inline-block w-0.5 h-6 bg-primary ml-1 align-middle"
+                className="inline-block w-0.5 h-6 bg-purple-400 ml-1 align-middle"
               />
             </p>
 
+            {/* Key Stats Section */}
             <motion.div
-              className="mt-8 pt-8 border-t border-border flex flex-wrap gap-6 justify-center"
+              className="mt-8 pt-8 border-t border-slate-800 flex flex-wrap gap-8 md:gap-12 justify-center"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              {[
-                { label: 'Year', value: '2nd Year' },
-                { label: 'Degree', value: 'B.Tech CSE' },
-                { label: 'Location', value: 'India' },
-              ].map((item, index) => (
+              {about.stats.map((item, index) => (
                 <motion.div
                   key={item.label}
                   className="text-center"
@@ -88,8 +92,10 @@ export const About = () => {
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.9 + index * 0.1 }}
                 >
-                  <div className="text-3xl font-bold text-primary mb-1">{item.value}</div>
-                  <div className="text-sm text-muted-foreground">{item.label}</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent mb-1">
+                    {item.value}
+                  </div>
+                  <div className="text-sm font-medium text-slate-400">{item.label}</div>
                 </motion.div>
               ))}
             </motion.div>
