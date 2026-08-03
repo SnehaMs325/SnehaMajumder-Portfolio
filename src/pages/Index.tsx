@@ -7,9 +7,7 @@ import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Experience } from "@/components/Experience";
 import { Projects } from "@/components/Projects";
-import { Certifications } from "@/components/Certifications";
-import { Education } from "@/components/Education";
-import { Achievements } from "@/components/Achievements";
+import { Qualifications } from "@/components/Qualifications";
 import { Contact } from "@/components/Contact";
 
 const Index = () => {
@@ -33,9 +31,11 @@ const Index = () => {
         <Skills skills={portfolioData.skills} />
         <Experience experience={portfolioData.experience} />
         <Projects projects={portfolioData.projects} />
-        <Certifications certifications={portfolioData.certifications} />
-        <Education education={portfolioData.education} />
-        <Achievements achievements={portfolioData.achievements} />
+        <Qualifications
+          education={portfolioData.education}
+          certifications={portfolioData.certifications}
+          achievements={portfolioData.achievements}
+        />
         <Contact contact={portfolioData.contact} />
       </main>
     </div>
