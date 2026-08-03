@@ -3,14 +3,14 @@
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-snehamajumder--portfolio.netlify.app-purple?style=for-the-badge&logo=netlify)](https://snehamajumder-portfolio.netlify.app)
 [![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20TypeScript%20%7C%20Tailwind%20%7C%20Python-blue?style=for-the-badge)](#-tech-stack)
 
-A high-performance, cosmic-themed personal portfolio showcasing my evolution from **Front-End Development** toward **Data Science, Machine Learning, and Analytics**. Built with modern React architecture, interactive 3D interactions, and modular data management.
+A high-performance, cosmic-themed personal portfolio showcasing my Front-End development foundation and my active transition into **Data Science, Analytics, and Machine Learning**. Built with modern React architecture, interactive 3D interactions, and modular data management.
 
 ---
 
 ## 📌 Overview
 
-This portfolio serves as an interactive hub highlighting my dual core focus:
-1. **Data Science & ML:** Exploratory Data Analysis (EDA), data visualization, statistical modeling (Python, Pandas, NumPy), and machine learning applications.
+This portfolio serves as an interactive hub highlighting my evolving technical path:
+1. **Data Analytics & ML Journey:** Exploratory Data Analysis (EDA), data visualization, statistical modeling (Python, Pandas, NumPy), and expanding into Machine Learning workflows.
 2. **Front-End Engineering:** Crafting responsive, accessible UI/UX, interactive data dashboards, and performant web applications (React, TypeScript, Tailwind CSS, Framer Motion).
 
 ---
@@ -19,7 +19,7 @@ This portfolio serves as an interactive hub highlighting my dual core focus:
 
 | Area | Technologies & Libraries |
 | :--- | :--- |
-| **Data & ML** | Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, Data Structures & Algorithms (Java) |
+| **Data & Analytics** | Python, Pandas, NumPy, Matplotlib, Seaborn, Data Structures & Algorithms (Java), ML Concepts |
 | **Front-End** | React.js, TypeScript, Tailwind CSS, Shadcn UI |
 | **Animation & Graphics** | Framer Motion, Lucide React Icons |
 | **Deployment & Hosting** | Netlify, Git, GitHub |
