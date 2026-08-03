@@ -17,7 +17,7 @@ export const portfolioData = {
     stats: [
       { label: 'Year', value: '3rd Year' },
       { label: 'Degree', value: 'B.Tech CSE' },
-      { label: 'Focus', value: 'Data Science & EDA' },
+      { label: 'Focus', value: 'DataSci · ML · Frontend' },
     ],
   },
 
