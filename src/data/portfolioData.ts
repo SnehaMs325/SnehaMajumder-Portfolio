@@ -73,24 +73,25 @@ export const portfolioData = {
     ],
   },
 
+
   projects: [
     {
       id: 'proj-1',
-      title: "Data Analytics & EDA Showcase",
-      description: "A series of exploratory data analysis (EDA) workflows using Python, Pandas, and visualization libraries to perform data cleaning and extract statistical insights.",
-      techStack: ["Python", "Pandas", "NumPy", "Matplotlib"],
-      githubUrl: "https://github.com/SnehaMs325",
+      title: "Customer Segmentation using K-Means",
+      description: "An unsupervised machine learning project that groups customers based on annual income and spending behavior. Applied K-Means clustering and the Elbow Method to identify distinct customer segments and generate insights for targeted marketing strategies.",
+      techStack: ["Python", "Pandas", "Scikit-Learn", "K-Means", "Matplotlib"],
+      githubUrl: "https://github.com/SnehaMs325/customer-segmentation-kmeans",
       liveUrl: "",
-      isComingSoon: true,
+      isComingSoon: false,
     },
     {
       id: 'proj-2',
-      title: "Machine Learning Predictive Model",
-      description: "An upcoming hands-on project applying core Machine Learning algorithms for classification and predictive modeling on real-world datasets.",
-      techStack: ["Python", "Scikit-Learn", "Pandas", "NumPy"],
-      githubUrl: "https://github.com/SnehaMs325",
+      title: "Customer Churn Prediction",
+      description: "A machine learning classification project designed to predict customer churn using historical customer data. Applied data preprocessing, Random Forest classification, model evaluation, and feature importance analysis to identify customers at risk of leaving.",
+      techStack: ["Python", "Pandas", "Scikit-Learn", "Random Forest", "NumPy"],
+      githubUrl: "https://github.com/SnehaMs325/customer-churn-prediction",
       liveUrl: "",
-      isComingSoon: true,
+      isComingSoon: false,
     },
     {
       id: 'proj-3',
@@ -102,6 +103,7 @@ export const portfolioData = {
       isComingSoon: false,
     },
   ],
+
 
   contact: {
     title: "Let's",
