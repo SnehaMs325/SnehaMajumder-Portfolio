@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Code2, Globe, Brain, Zap } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
-import { portfolioData } from '../data/portfolioData';
 
-// Map string keys to actual React icon components
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Code2, Globe, Brain, Zap } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
+import { portfolioData } from "../data/portfolioData";
+
+// Map string keys to React icon components
 const iconMap: Record<string, React.ElementType> = {
   Code2,
   Globe,
@@ -19,39 +20,56 @@ export const Skills: React.FC = () => {
   const { skills } = portfolioData;
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
+    <section
+      id="skills"
+      className="section-padding relative overflow-hidden bg-background text-foreground"
+    >
+      <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
         >
-          {/* Section Heading */}
+          {/* Editorial section label */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+            className="flex items-center justify-between mb-5"
+          >
+            <span className="text-primary text-xs font-bold tracking-[0.25em] uppercase">
+              02 / What I bring to the table
+            </span>
+
+            
+          </motion.div>
+
+          {/* Heading */}
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 text-center tracking-tight text-white"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
+            className="about-heading-glow text-4xl md:text-6xl font-black tracking-tight mb-4"
           >
-            {skills.title}{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-              {skills.titleHighlight}
+            My creative{" "}
+            <span className="about-heading-accent text-primary italic">
+              toolkit.
             </span>
           </motion.h2>
 
           {/* Subtitle */}
           <motion.p
-            className="text-center text-slate-400 mb-16 max-w-2xl mx-auto text-base md:text-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-muted-foreground text-base md:text-lg mb-10 max-w-2xl"
           >
             {skills.subtitle}
           </motion.p>
 
           {/* Skills Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
             {skills.items.map((skill, index) => {
               const IconComponent = iconMap[skill.icon] || Code2;
 
@@ -63,33 +81,77 @@ export const Skills: React.FC = () => {
                   transition={{
                     duration: 0.5,
                     delay: 0.3 + index * 0.1,
-                    type: 'spring',
+                    type: "spring",
                     stiffness: 200,
                   }}
-                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  whileHover={{ scale: 1.04, rotate: 1 }}
                   className="group"
                 >
-                  <div className="bg-slate-900/60 backdrop-blur-md border border-purple-500/20 rounded-xl p-6 text-center h-full flex flex-col items-center justify-center relative overflow-hidden transition-all duration-300 hover:border-purple-500/50 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
-                    {/* Hover Glow Gradient Background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <div
+                    className="
+                      relative h-full min-h-[180px]
+                      flex flex-col items-center justify-center
+                      overflow-hidden rounded-2xl
+                      border border-border
+                      bg-card
+                      p-5 md:p-8
+                      text-center
+                      shadow-sm
+                      transition-all duration-300
+                      hover:border-primary/60
+                      hover:shadow-[0_12px_35px_rgba(229,50,41,0.12)]
+                    "
+                  >
+                    {/* Subtle red hover background */}
+                    <div
+                      className="
+                        absolute inset-0
+                        bg-primary/5
+                        opacity-0
+                        group-hover:opacity-100
+                        transition-opacity duration-300
+                        pointer-events-none
+                      "
+                    />
 
+                    
+                    {/* Skill icon */}
                     <motion.div
                       className="mb-4 relative"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                     >
-                      {/* Ambient Halo Glow */}
                       <div
-                        className="absolute inset-0 rounded-full blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"
-                        style={{ backgroundColor: skill.color }}
+                        className="
+                          absolute inset-0 rounded-full
+                          bg-primary/15 blur-xl
+                          opacity-0
+                          group-hover:opacity-100
+                          transition-opacity duration-300
+                        "
                       />
+
                       <IconComponent
-                        className="w-12 h-12 relative z-10 transition-transform duration-300 group-hover:scale-110"
-                        style={{ color: skill.color }}
+                        className="
+                          w-11 h-11 md:w-12 md:h-12
+                          relative z-10
+                          text-primary
+                          transition-transform duration-300
+                          group-hover:scale-110
+                        "
                       />
                     </motion.div>
 
-                    <h3 className="font-semibold text-slate-200 text-base md:text-lg">
+                    {/* Skill name */}
+                    <h3
+                      className="
+                        about-stats-font
+                        relative z-10
+                        text-base md:text-xl
+                        font-bold
+                        text-foreground
+                      "
+                    >
                       {skill.name}
                     </h3>
                   </div>
@@ -97,6 +159,19 @@ export const Skills: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Bottom editorial caption */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="flex items-center justify-between gap-4 mt-7"
+          >
+            <span className="text-[10px] md:text-xs font-bold tracking-[0.12em] uppercase text-muted-foreground">
+              A little bit of logic. A lot of curiosity.
+            </span>
+
+          </motion.div>
         </motion.div>
       </div>
     </section>
