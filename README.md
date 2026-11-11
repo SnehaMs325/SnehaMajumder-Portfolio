@@ -26,4 +26,4 @@ My personal portfolio showcasing my journey as a Computer Science student, my pr
 
 ---
 
-Made with curiosity, creativity, and a little bit of code. ❤️
+Made with curiosity, creativity, and a little bit of code. 
