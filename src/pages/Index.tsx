@@ -1,14 +1,14 @@
+
 import { useEffect } from "react";
 import { portfolioData } from "@/data/portfolioData";
 import { CustomCursor } from "@/components/CustomCursor";
-import { CosmicBackground } from "@/components/CosmicBackground";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Experience } from "@/components/Experience";
 import { Projects } from "@/components/Projects";
-import { Qualifications } from "@/components/Qualifications";
 import { Contact } from "@/components/Contact";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Index = () => {
   // Dynamically set page title from centralized personal info
@@ -20,9 +20,9 @@ const Index = () => {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 selection:text-primary-foreground">
-      {/* Fixed Cosmic Background Canvas & Custom Cursor Overlay */}
-      <CosmicBackground />
+      {/* Custom Cursor Overlay */}
       <CustomCursor />
+      <ThemeToggle />
 
       {/* Main Page Structure with Clean Flow */}
       <main className="relative z-10">
@@ -31,11 +31,6 @@ const Index = () => {
         <Skills skills={portfolioData.skills} />
         <Experience experience={portfolioData.experience} />
         <Projects projects={portfolioData.projects} />
-        <Qualifications
-          education={portfolioData.education}
-          certifications={portfolioData.certifications}
-          achievements={portfolioData.achievements}
-        />
         <Contact contact={portfolioData.contact} />
       </main>
     </div>
