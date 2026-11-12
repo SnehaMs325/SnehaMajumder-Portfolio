@@ -207,16 +207,7 @@ export const Contact: React.FC = () => {
               onSubmit={handleSubmit}
               className="space-y-5"
             >
-              {/* Honeypot spam protection */}
-              <input
-                type="checkbox"
-                name="botcheck"
-                className="hidden"
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-              />
-
+              
               <div className="grid gap-5 md:grid-cols-2">
                 <div>
                   <label

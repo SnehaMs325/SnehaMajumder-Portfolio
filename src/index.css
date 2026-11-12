@@ -1,4 +1,6 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Caveat:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,35 +42,22 @@
 
     --radius: 0.75rem;
 
-    /* Updated gradients */
-    --gradient-cosmic: linear-gradient(135deg,
-        #F4F4EB 0%,
-        #EBEBE1 100%);
-
+    /* Primary gradient */
     --gradient-primary: linear-gradient(135deg,
         #E53229 0%,
         #C72520 100%);
 
+    /* Glow gradient */
     --gradient-glow: radial-gradient(circle at center,
         rgb(229 50 41 / 0.12) 0%,
         transparent 70%);
 
-    /* Updated shadows */
-    --shadow-cosmic: 0 10px 40px -10px rgb(28 28 28 / 0.12);
+    /* Glow shadow */
     --shadow-glow: 0 0 30px rgb(229 50 41 / 0.18);
 
-    /* Animations — unchanged */
+    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    --sidebar-background: 60 29% 97%;
-    --sidebar-foreground: 0 0% 11%;
-    --sidebar-primary: 3 78% 53%;
-    --sidebar-primary-foreground: 60 29% 94%;
-    --sidebar-accent: 60 13% 89%;
-    --sidebar-accent-foreground: 0 0% 11%;
-    --sidebar-border: 0 0% 85%;
-    --sidebar-ring: 3 78% 53%;
   }
 
   .dark {
@@ -102,10 +91,6 @@
     --input: 60 29% 94% / 0.18;
     --ring: 3 78% 53%;
 
-    --gradient-cosmic: linear-gradient(135deg,
-        #1C1C1C 0%,
-        #292929 100%);
-
     --gradient-primary: linear-gradient(135deg,
         #E53229 0%,
         #C72520 100%);
@@ -114,17 +99,7 @@
         rgb(229 50 41 / 0.16) 0%,
         transparent 70%);
 
-    --shadow-cosmic: 0 10px 40px -10px rgb(0 0 0 / 0.35);
     --shadow-glow: 0 0 30px rgb(229 50 41 / 0.22);
-
-    --sidebar-background: 0 0% 15%;
-    --sidebar-foreground: 60 29% 94%;
-    --sidebar-primary: 3 78% 53%;
-    --sidebar-primary-foreground: 60 29% 94%;
-    --sidebar-accent: 0 0% 20%;
-    --sidebar-accent-foreground: 60 29% 94%;
-    --sidebar-border: 0 0% 28%;
-    --sidebar-ring: 3 78% 53%;
   }
 
 }
@@ -140,7 +115,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
     overflow-x: hidden;
   }
 
@@ -157,23 +132,12 @@
   h4,
   h5,
   h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
   }
 }
 
-/* Cosmic effects */
-.cosmic-glow {
-  box-shadow: var(--shadow-glow);
-}
+/* ===== CUSTOM CURSOR ===== */
 
-.text-gradient {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Custom cursor */
 .custom-cursor {
   width: 20px;
   height: 20px;
@@ -195,37 +159,20 @@
   z-index: 9999;
 }
 
-/* Perspective for 3D flip cards */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
+/* ===== SECTION SPACING ===== */
 
 @layer components {
 
-  /* Tightened global section padding */
+  /* Global section padding */
   .section-padding {
     @apply py-8 md:py-12 lg:py-14;
   }
 
-  /* Utility for sections needing closer spacing (e.g., Contact) */
+  /* Tighter spacing for Contact */
   .section-padding-tight {
     @apply pt-4 pb-12 md:pt-6 md:pb-16 lg:pt-8 lg:pb-16;
   }
-
-  .section-heading {
-    @apply text-3xl md:text-4xl font-bold text-foreground mb-3 md:mb-4 tracking-tight;
-  }
-
-  .section-subheading {
-    @apply text-muted-foreground text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto;
-  }
 }
-
 
 /* ===== NEW EDITORIAL HERO ===== */
 
@@ -401,6 +348,8 @@
   transform: translateY(-3px);
 }
 
+/* ===== MOBILE HERO ===== */
+
 @media (max-width: 768px) {
   .hero-intro {
     padding-top: 70px;
@@ -430,14 +379,14 @@
   }
 }
 
+/* Accessibility: Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .hero-marquee-track {
     animation: none;
   }
 }
-/* ===== ABOUT SECTION TYPOGRAPHY ===== */
 
-/* Handwritten About Me introduction */
+/* ===== ABOUT SECTION TYPOGRAPHY ===== */
 
 /* Introduction paragraph — Caveat */
 .about-editorial-text {

@@ -1,16 +1,23 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Code2, Globe, Brain, Zap } from "lucide-react";
+import {
+  Code2,
+  Globe,
+  Brain,
+  BarChart3,
+  Layout,
+} from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { portfolioData } from "../data/portfolioData";
 
-// Map string keys to React icon components
+// Map skill icon names to React icon components
 const iconMap: Record<string, React.ElementType> = {
   Code2,
   Globe,
   Brain,
-  Zap,
+  BarChart3,
+  Layout,
   Github: FaGithub,
 };
 
@@ -41,8 +48,6 @@ export const Skills: React.FC = () => {
             <span className="text-primary text-xs font-bold tracking-[0.25em] uppercase">
               02 / What I bring to the table
             </span>
-
-            
           </motion.div>
 
           {/* Heading */}
@@ -114,7 +119,6 @@ export const Skills: React.FC = () => {
                       "
                     />
 
-                    
                     {/* Skill icon */}
                     <motion.div
                       className="mb-4 relative"
@@ -170,7 +174,6 @@ export const Skills: React.FC = () => {
             <span className="text-[10px] md:text-xs font-bold tracking-[0.12em] uppercase text-muted-foreground">
               A little bit of logic. A lot of curiosity.
             </span>
-
           </motion.div>
         </motion.div>
       </div>
