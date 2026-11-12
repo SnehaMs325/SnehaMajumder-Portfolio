@@ -25,14 +25,16 @@ const Index = () => {
       <ThemeToggle />
 
       {/* Main Page Structure with Clean Flow */}
+
       <main className="relative z-10">
-        <Hero data={portfolioData.hero} />
-        <About data={portfolioData.about} />
-        <Skills skills={portfolioData.skills} />
-        <Experience experience={portfolioData.experience} />
-        <Projects projects={portfolioData.projects} />
-        <Contact contact={portfolioData.contact} />
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Contact />
       </main>
+
     </div>
   );
 };
