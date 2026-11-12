@@ -35,44 +35,6 @@ export const portfolioData = {
     ],
   },
 
-  experience: {
-    title: "Experience &",
-    titleHighlight: "Journey",
-    subtitle: "Practical exposure through technical clubs, campus ambassadorships, and rapid project hackathons.",
-    items: [
-      {
-        id: 'exp-1',
-        title: 'Bit 2 Byte Club Member',
-        organization: 'College Tech Club',
-        location: 'College Campus',
-        period: '2024 - Present',
-        description: 'Active contributor participating in programming workshops and collaborative tech activities.',
-        details: 'Engaged in peer coding sessions, supported technical event execution, and collaborated on software and logic-building projects.',
-        icon: 'Users',
-      },
-      {
-        id: 'exp-2',
-        title: 'Internshala Student Partner',
-        organization: 'Internshala',
-        location: 'Remote',
-        period: '2025',
-        description: 'Campus ambassador facilitating tech initiatives and student skill growth.',
-        details: 'Promoted technical training programs, organized awareness sessions, and drove student engagement across campus.',
-        icon: 'Briefcase',
-      },
-      {
-        id: 'exp-3',
-        title: 'Hackathons',
-        organization: '1x Winner (1st Position Track Prize)',
-        location: 'Online / On-Site',
-        period: '2024 - Present',
-        description: 'Secured 1st position as a track prize winner by designing and developing rapid technical prototypes under strict hackathon deadlines.',
-        details: 'Collaborated in a high-performing team to translate data concepts and responsive UI wireframes into a winning, functional prototype.',
-        icon: 'Award',
-      },
-    ],
-  },
-
 
   projects: [
     {
