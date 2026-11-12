@@ -68,7 +68,7 @@ export const portfolioData = {
         "A responsive developer portfolio engineered with React, Tailwind CSS, and Framer Motion to present data projects and technical skills cleanly.",
       techStack: ["React", "JavaScript", "Tailwind CSS"],
       githubUrl: "https://github.com/SnehaMs325",
-      liveUrl: "https://snehamajumder-portfolio.netlify.app/",
+      liveUrl: "https://snehamj.is-a.dev/",
     },
   ],
 
